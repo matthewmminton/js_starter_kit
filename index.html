@@ -14,14 +14,17 @@
 
   <div class="row">
     <div class="large-6 columns">
-      <input type="text" placeholder="an input" />
-      <a href="#" class="button">Button</a>
-      <a href="#" class="button success">Button</a>
+      <div id = "test"><input type="text" placeholder="Enter your number here!" id="guess" class="guess"/></div>
+      <a href="#" class="button" id="enter">Submit Guess!</a>
+      <a href="#" class="button success" id="restart">Start a new game!</a>
       <a href="#" class="button alert">Button</a>
     </div>
     <div class="large-6 columns">
       <div data-alert class="alert-box">
-        A box
+        Guess: <span></span>
+      </div>
+      <div id="count">
+        Count: <span></span>
       </div>
     </div>
   </div>
