@@ -22,10 +22,19 @@ $("#enter").on("click", function(){
   //counting
   count = count + 1;
   $("#count span").html(count);
-  // if guess is too high, let them know the guess is too high
-  // if guess is too low, let them know the guess is too low
   // if guess is accurate, let them know they guessed the number and how many guesses it took
+  if(value_int === rand) {
+    $("#return span").html("Congratulations, you've guessed the number in " + count + " guesses!");
+  } else if(value_int < rand && value_int >= 0) {
+  // if guess is too low, let them know the guess is too low
+    $("#return span").html(value + " was too low, try again!");
   // if guess is invalid, provide invalid input message
+  } else if (value_int > 50 || value_int < 0 || !$.isNumeric(value_int)) {
+    $("#return span").html("Invalid input, must enter a number between 0 and " + MAX);
+  // if guess is too high, let them know the guess is too high
+  } else {
+    $("#return span").html(value + " was too high, try again!");
+  }
   });
 
 //bind "hitting enter" to clicking the button to submit guess.
@@ -39,6 +48,7 @@ $("#guess").keyup(function(event){
 $("#restart").on("click", function(){
   rand = getRandomInt(0, 50);
   $(".alert-box span").html('');
+  $("#return span").html('');
   count = 0;
   $("#count span").html(count);
 });
